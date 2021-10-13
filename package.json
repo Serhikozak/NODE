@@ -1,0 +1,16 @@
+{
+  "name": "nodejs-skozakov-demo",
+  "version": "1.0.0",
+  "description": "nodejs image demo",
+  "author": "skozakov the Shark <skozakov924@gmail.com>",
+  
+  "main": "app.js",
+  "keywords": [
+    "nodejs",
+    "bootstrap",
+    "express"
+  ],
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
