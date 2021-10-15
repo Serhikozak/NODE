@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build project with tag') {
             steps{
-                git credentialsId: "test_Node", url:'git@github.com:Serhikozak/NODE.git'
+                git credentialsId: "test_Node", branch: "main" url:'git@github.com:Serhikozak/NODE.git'
 
             }
         }
