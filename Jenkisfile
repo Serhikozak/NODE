@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Build project with tag') {
+        stage('Cloning repo') {
             steps{
-                git credentialsId: "test_Node", branch: "main" url:'git@github.com:Serhikozak/NODE.git'
+                git credentialsId: "test_Node", branch: "main", url:'git@github.com:Serhikozak/NODE.git'
 
             }
         }
