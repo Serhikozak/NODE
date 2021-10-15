@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build project with tag') {
+            steps{
+                git credentialsId: "test_Node", url:'git@github.com:Serhikozak/NODE.git'
+
+            }
+        }
+    }
+}
