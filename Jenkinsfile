@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build Image') {
             steps{
-                image= docker.build (:test_run)
+                image = docker.build test_run + "$BUILD_NUMBER"
             }
         }
     }
