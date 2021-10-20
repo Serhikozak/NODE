@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         registry = '13290479/for_lcgroup'
-        registryID = "to_connect_DockerHub"
+        registryCredential = "to_connect_DockerHub"
         imageDocker = ''}
     stages {
         stage('Cloning repo') {
@@ -13,7 +13,9 @@ pipeline {
         }
         stage('Build Image') {
             steps{
-                imageDocker = docker.build registry + ":$BUILD_NUMBER"
+                script {
+                    imageDocker = docker.build registry + ":NODE-$BUILD_NUMBER"
+                }
             }
         }
         stage ('Push Image') {
