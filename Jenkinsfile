@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        registry = 13290479/for_lcgroup
+        registry = '13290479/for_lcgroup'
         registryID = "to_connect_DockerHub"
         imageDocker = ''}
     stages {
@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Build Image') {
             steps{
-                imageDocker = docker.build test_run + "$BUILD_NUMBER"
+                imageDocker = docker.build registry + "$BUILD_NUMBER"
             }
         }
         stage ('Push Image') {
