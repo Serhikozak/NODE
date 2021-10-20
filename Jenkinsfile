@@ -1,6 +1,8 @@
 pipeline {
     agent any
     environment {
+        registry = 13290479/for_lcgroup
+        registryID = "to_connect_DockerHub"
         imageDocker = ''}
     stages {
         stage('Cloning repo') {
