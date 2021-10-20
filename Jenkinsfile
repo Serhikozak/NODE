@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Build Image') {
             steps{
-                imageDocker = docker.build registry + "$BUILD_NUMBER"
+                imageDocker = docker.build registry + ":$BUILD_NUMBER"
             }
         }
         stage ('Push Image') {
