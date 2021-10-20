@@ -4,6 +4,6 @@ WORKDIR /app
 COPY package.json /app
 RUN npm install
 RUN npm run
-FROM ngnix:1.20.1
+FROM nginx:1.20.1
 COPY --from=build /app/dist/ /usr/share/nginx/html
 EXPOSE 4200:80
