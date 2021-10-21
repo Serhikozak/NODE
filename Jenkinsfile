@@ -3,7 +3,7 @@ pipeline {
     environment {
         registry = '13290479/for_lcgroup'
         registryCredential = "to_connect_DockerHub"
-        imageDocker = ''}
+        dockerImage = ''}
     stages {
         stage('Cloning repo') {
             steps{
@@ -14,14 +14,18 @@ pipeline {
         stage('Build Image') {
             steps{
                 script {
-                    imageDocker = docker.build registry + ":NODE-$BUILD_NUMBER"
+                    dockerImage = docker.build registry + ":NODE-$BUILD_NUMBER"
                 }
             }
         }
         stage ('Push Image') {
             steps{
-                push(env.$BUILD_NUMBER)
-                push('latest')
+                script {
+                    docker.withRegistry( '', registryCredential ) {
+                        dockerImage.push((env.$NODE-BUILD_NUMBER)
+                        dockerImage.push('latest')
+                    )
+                }
             }
         }
         stage ('Delete Image') {

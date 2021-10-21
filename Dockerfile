@@ -1,7 +1,7 @@
 FROM node:latest as build
-RUN mkdir app
+RUN mkdir -p ./app
 WORKDIR /app
-COPY package.json /app
+COPY . /app
 RUN npm install
 RUN npm run
 FROM nginx:1.20.1
