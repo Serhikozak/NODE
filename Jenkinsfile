@@ -22,9 +22,9 @@ pipeline {
             steps{
                 script {
                     docker.withRegistry( '', registryCredential ) {
-                        dockerImage.push((env.NODE-$BUILD_NUMBER)
+                        dockerImage.push(env.NODE-$BUILD_NUMBER)
                         dockerImage.push('latest')
-                    )
+                    }
                 }
             }
         }
