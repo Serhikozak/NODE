@@ -30,7 +30,11 @@ pipeline {
         }
         stage ('Delete Image') {
             steps{
-                delete()
+                script {
+                    dockerImage.rmi registry + ":NODE-$BUILD_NUMBER"
+                    dockerImage.rmi('latest')
+                }
+
             }
         }
     }
