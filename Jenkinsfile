@@ -5,6 +5,11 @@ pipeline {
         registryCredential = "to_connect_DockerHub"
         dockerImage = ''}
     stages {
+        stage('Checkout') {
+          steps {
+            checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: 'git@github.com:Serhikozak/NODE.git', credentialsId: "test_Node" ]], branches: [[name: 'refs/tags/${TAG}']]], poll: false
+          }
+        }
         stage('Cloning repo') {
             steps{
                 git credentialsId: "test_Node", branch: "main", url:'git@github.com:Serhikozak/NODE.git'
