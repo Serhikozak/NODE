@@ -1,6 +1,7 @@
 pipeline {
     agent any
     environment {
+        TAG = '10.*.*'
         registry = '13290479/for_lcgroup'
         registryCredential = "to_connect_DockerHub"
         dockerImage = ''}
