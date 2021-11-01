@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        TAG = 'v10.*.*'
+        TAG = sh(returnStdout: true, script: "git rev-parse --short=10 HEAD").trim()
         registry = '13290479/for_lcgroup'
         registryCredential = "to_connect_DockerHub"
         dockerImage = ''}
