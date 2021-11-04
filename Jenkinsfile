@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Cloning repo') {
             steps{
-                git credentialsId: "test_Node", url:'git@github.com:Serhikozak/NODE.git'
+                git credentialsId: "test_Node", branch: 'refs/remotes/origin/tags/${TAG}' , url:'git@github.com:Serhikozak/NODE.git'
 
             }
         }
