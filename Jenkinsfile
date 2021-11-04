@@ -14,14 +14,14 @@ pipeline {
         }
         stage('Cloning repo') {
             steps{
-                git credentialsId: "test_Node", branch: "main", url:'git@github.com:Serhikozak/NODE.git'
+                git credentialsId: "test_Node", url:'git@github.com:Serhikozak/NODE.git'
 
             }
         }
         stage('Build Image') {
             steps{
                 script {
-                    dockerImage = docker.build registry + ":NODE-$BUILD_NUMBER"
+                    dockerImage = docker.build registry + ":NODE-${TAG}"
                 }
             }
         }
