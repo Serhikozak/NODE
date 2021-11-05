@@ -9,12 +9,12 @@ pipeline {
     stages {
         stage('Checkout') {
           steps {
-            checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: 'git@github.com:Serhikozak/NODE.git', credentialsId: "test_Node" ]], branches: [[name: 'refs/tags/${TAG}']]], poll: false
+            checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: 'git@github.com:Serhikozak/NODE.git', credentialsId: "test_Node" ]], branches: [[name: ${TAG}]]], poll: false
           }
         }
         stage('Cloning repo') {
             steps{
-                git credentialsId: "test_Node", branch: 'refs/remotes/origin/tags/${TAG}' , url:'git@github.com:Serhikozak/NODE.git'
+                git credentialsId: "test_Node", branch: ${TAG} , url:'git@github.com:Serhikozak/NODE.git'
 
             }
         }
