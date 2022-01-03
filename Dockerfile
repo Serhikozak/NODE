@@ -1,9 +1,9 @@
-FROM node:latest as build
-RUN mkdir -p /app
+FROM angular/ngcontainer:latest as build
+RUN mkdir /app
 WORKDIR /app
 COPY . /app
-RUN npm install
-RUN npm run build
+RUN npm install  -g npm@8.1.2
+#RUN npm run build
 
 FROM nginx:1.20.1
 COPY --from=build /app/dist/ /usr/share/nginx/html
